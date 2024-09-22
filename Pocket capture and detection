@@ -1,0 +1,5 @@
+def packet_callback(packet):
+    print(packet.summary())
+    detect_attack(packet)
+
+sniff(prn=packet_callback)
