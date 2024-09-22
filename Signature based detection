@@ -1,0 +1,9 @@
+known_attacks = {
+    'SYN Flood': 'SYN',
+    'Port Scan': 'ICMP'
+}
+
+def detect_attack(packet):
+    for attack_name, attack_type in known_attacks.items():
+        if packet.haslayer(attack_type):
+            print(f"[ALERT] {attack_name} detected: {packet.summary()}")
